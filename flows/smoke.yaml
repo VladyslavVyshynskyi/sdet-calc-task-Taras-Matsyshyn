@@ -1,0 +1,5 @@
+appId: com.loopme.calc
+---
+- launchApp
+- assertVisible:
+    id: "result"

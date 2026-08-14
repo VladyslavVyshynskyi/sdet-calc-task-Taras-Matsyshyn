@@ -1,0 +1,22 @@
+# Maestro workspace configuration (flows root = this flows/ directory).
+#
+# All flows live flat in this flows/ directory, so `maestro test flows/`
+# discovers every flow directly. The tagged suite command
+#   maestro test flows/ --include-tags todo --format junit --output result.xml
+# selects tc1/tc2/tc3 by tag and excludes the untagged smoke.yaml.
+#
+# NOTE: appId is declared PER-FLOW in each flow's header (Maestro sets appId
+# per flow, not globally). This workspace file intentionally does NOT set a
+# global appId. It holds shared workspace-level config only.
+flows:
+  - "**"
+
+# Output conventions — same as the shared QE automation harness, so every run
+# shows a result for every test. onFlowStart/onFlowComplete print one line per
+# flow as it starts/finishes; testOutputDir collects Maestro's per-test output
+# (per-flow logs, screenshots, and a report) under logs/ for later debugging.
+onFlowStart:
+  - evalScript: "${console.log('Starting flow ' + maestro.currentFlowFile)}"
+onFlowComplete:
+  - evalScript: "${console.log('Completed flow ' + maestro.currentFlowFile)}"
+testOutputDir: logs/maestro

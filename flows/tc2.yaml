@@ -1,0 +1,16 @@
+appId: com.loopme.calc
+tags:
+  - todo
+---
+- launchApp
+- tapOn:
+    id: "btn_4"
+- tapOn:
+    id: "btn_plus"
+- tapOn:
+    id: "btn_5"
+- tapOn:
+    id: "btn_equals"
+- assertVisible:
+    id: "result"
+    text: "8"

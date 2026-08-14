@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Android / Gradle build output
+.gradle/
+build/
+app/build/
+local.properties
+captures/
+.idea/
+*.iml
+.kotlin/
+
+# Keep the Gradle wrapper jar (needed to build)
+!gradle/wrapper/gradle-wrapper.jar
+
+# run.sh / Maestro run outputs (the logs/ dir itself is kept via .gitkeep)
+logs/*.log
+logs/emulator-*.log
+logs/results-*.xml
+logs/maestro/
+result.xml
